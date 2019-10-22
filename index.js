@@ -6,15 +6,18 @@ const obj1 = {
 };
 
 function cloneWithModifiedKeys (obj, par) {
-    if (null == obj || "object" != typeof obj) return obj;
-
-    return res = obj.keys.map(k => k.stringify() + par);
-
-    throw new Error("Unable to copy obj! Its type isn't supported.");
+    let newObj2 = Object.keys(obj1).reduce(function(result, current) {
+        result[current + '_test'] = obj1[current];   
+        return result;
+    }, {});
+    
+    console.log(newObj2);
 };
 
 
 function main () {
-
-    console.log(cloneWithModifiedKeys(obj1, 'test'));
+    let result = cloneWithModifiedKeys(obj1, 'test'); 
+    console.log(result);
 }
+
+main();
